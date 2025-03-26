@@ -8,8 +8,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Github, HelpCircle, Youtube } from "lucide-react";
-// import Link from "next/link";
+import { Github, HelpCircle, Linkedin } from "lucide-react";
+import Link from "next/link";
 import Image from "next/image";
 
 const DetailsDialog = () => {
@@ -25,26 +25,26 @@ const DetailsDialog = () => {
         <DialogHeader>
           <DialogTitle className="text-2xl">Welcome to Quizzzy!</DialogTitle>
           <DialogDescription>
-            {/* <div className="flex items-center gap-3 my-2">
+            <div className="flex items-center gap-3 my-2">
               <p className="flex items-center">
                 <Github className="w-5 h-5" />
                 <Link
                   className="ml-1 underline"
-                  href="https://github.com/elliott-chong/Quizzzy"
+                  href="https://github.com/s0meone12/Quizmify"
                 >
                   GitHub
                 </Link>
               </p>
               <p className="flex items-center">
-                <Youtube className="w-5 h-5" />
+                <Linkedin className="w-5 h-5" />
                 <Link
                   className="ml-1 underline"
-                  href="https://youtube.com/@elliottchong"
+                  href="https://www.linkedin.com/in/gaurav-shende-164a1b248/"
                 >
-                  YouTube
+                  LinkedIn
                 </Link>
               </p>
-            </div> */}
+            </div>
             <p className="my-2 mt-4 ">
               Are you tired of mundane and repetitive quizzes? Say goodbye to
               the ordinary and embrace the extraordinary with Quizmefy! Our
@@ -58,11 +58,11 @@ const DetailsDialog = () => {
                 <div className="flex items-center gap-2">
                   <Image
                     alt="planetscale"
-                    src="/planetscale.png"
+                    src="/neondb.png"
                     width={35}
                     height={35}
                   />
-                  <span className="">Planet Scale</span>
+                  <span className="">NeonDB</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Image

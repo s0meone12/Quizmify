@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 import DetailsDialog from '@/components/details-dialog';
 import QuizMeCard from '@/components/dashboard/quiz-me-card';
 import HistoryCard from '@/components/dashboard/history-card';
-// import HotTopicsCard from '@/components/dashboard/hot-topics-card';
+import HotTopicsCard from '@/components/dashboard/hot-topics-card';
 import RecentActivityCard from '@/components/dashboard/recent-activity-card';
 
 
@@ -30,7 +30,7 @@ const Dashboard = async () => {
         <HistoryCard />
       </div>
       <div className="grid gap-4 mt-4 md:grid-cols-2 lg:grid-cols-7">
-        {/* <HotTopicsCard /> */}
+        <HotTopicsCard />
         <RecentActivityCard />
       </div>
     </main>

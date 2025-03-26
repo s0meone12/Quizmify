@@ -18,10 +18,12 @@ export default function RootLayout({children,}:{children: React.ReactNode}) {
       <body
         className={cn(inter.className, 'antialiased min-h-screen pt-16')}
       >
+        <>
         <Providers>
         <Navbar/>
         {children}
         </Providers>
+        </>
       </body>
     </html>
   );
