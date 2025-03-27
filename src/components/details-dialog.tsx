@@ -94,11 +94,11 @@ const DetailsDialog = () => {
                 <div className="flex items-center gap-2">
                   <Image
                     alt="openai"
-                    src="/openai.png"
+                    src="/togetherai.png"
                     width={30}
                     height={30}
                   />
-                  <span className="">OpenAI</span>
+                  <span className="">TogetherAI</span>
                 </div>
 
                 <div className="flex items-center gap-2">
