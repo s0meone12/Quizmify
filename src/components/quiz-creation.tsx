@@ -30,28 +30,36 @@ import {
 } from "@/components/ui/card";
 import LoadingQuestions from "./loading-questions";
 
-type Props = {
-  topic: string;
-};
+// type Props = {
+//   topic: string;
+// };
 
 type Input = z.infer<typeof quizCreationSchema>;
 
-const QuizCreation = ({ topic: topicParam }: Props) => {
+const QuizCreation =({ topic }: { topic: string }) => {
   const router = useRouter();
   const [showLoader, setShowLoader] = React.useState(false);
   const [finishedLoading, setFinishedLoading] = React.useState(false);
   const { toast } = useToast();
-  const { mutate: getQuestions, status } = useMutation({
+  const { mutate: getQuestions, isPending } = useMutation({
     mutationFn: async ({ amount, topic, type }: Input) => {
-      const response = await axios.post("/api/game", { amount, topic, type });
+      const response = await axios.post("/api/game", 
+        { amount, topic, type },
+        // {
+        //   headers: {
+        //     Authorization: `Bearer ${session?.token}`,
+        //   },
+        // }
+      );
       return response.data;
     },
   });
 
+
   const form = useForm<Input>({
     resolver: zodResolver(quizCreationSchema),
     defaultValues: {
-      topic: topicParam,
+      topic: topic,
       type: "mcq",
       amount: 3,
     },
@@ -75,9 +83,11 @@ const QuizCreation = ({ topic: topicParam }: Props) => {
       onSuccess: ({ gameId }: { gameId: string }) => {
         setFinishedLoading(true);
         setTimeout(() => {
+
           if (form.getValues("type") === "mcq") {
             router.push(`/play/mcq/${gameId}`);
-          } else if (form.getValues("type") === "open_ended") {
+          } 
+          else if (form.getValues("type") === "open_ended") {
             router.push(`/play/open-ended/${gameId}`);
           }
         }, 2000);
@@ -171,7 +181,7 @@ const QuizCreation = ({ topic: topicParam }: Props) => {
                   <BookOpen className="w-4 h-4 mr-2" /> Open Ended
                 </Button>
               </div>
-              <Button disabled={status === "pending"} type="submit">
+              <Button disabled={isPending} type="submit">
                 Submit
               </Button>
             </form>
